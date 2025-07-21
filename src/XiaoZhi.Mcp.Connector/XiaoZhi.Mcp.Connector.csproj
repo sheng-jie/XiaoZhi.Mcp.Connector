@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- NuGet 包元数据 -->
+    <PackageId>XiaoZhi.Mcp.Connector</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>shengjie</Authors>
+    <Description>小智 MCP 接入点连接器，无缝开发C# MCP Server并连接到小智AI</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/sheng-jie/XiaoZhi.Mcp.Connector</RepositoryUrl>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="ModelContextProtocol" Version="0.3.0-preview.3" />
+		<PackageReference Include="Websocket.Client" Version="5.2.0" />
+	</ItemGroup>
+</Project>
