@@ -1,24 +1,24 @@
-# Ğ¡ÖÇ MCP ½ÓÈëµãÁ¬½ÓÆ÷
+# å°æ™º MCP æ¥å…¥ç‚¹è¿æ¥å™¨
 
-±¾ÏîÄ¿µÄÄ¿µÄÊÇÎªÁË½«Ê¹ÓÃ [MCP¹Ù·½C# SDK](https://github.com/modelcontextprotocol/csharp-sdk) ¿ª·¢µÄMCP Server Ö±½Ó¶Ô½ÓĞ¡ÖÇAI MCP ½ÓÈëµã¶ø¿ª·¢¡£ÆäºËĞÄË¼ÏëÊÇ×Ô¶¨Òå`ITransport` À´Ö±½ÓÁ¬½Óµ½Ğ¡ÖÇAIµÄWebSocket½ÓÈëµã£¬ÊµÏÖMCPĞ­ÒéµÄÎŞ·ì¼¯³É¡£
+æœ¬é¡¹ç›®çš„ç›®çš„æ˜¯ä¸ºäº†å°†ä½¿ç”¨ [MCPå®˜æ–¹C# SDK](https://github.com/modelcontextprotocol/csharp-sdk) å¼€å‘çš„MCP Server ç›´æ¥å¯¹æ¥å°æ™ºAI MCP æ¥å…¥ç‚¹è€Œå¼€å‘ã€‚å…¶æ ¸å¿ƒæ€æƒ³æ˜¯è‡ªå®šä¹‰`ITransport` æ¥ç›´æ¥è¿æ¥åˆ°å°æ™ºAIçš„WebSocketæ¥å…¥ç‚¹ï¼Œå®ç°MCPåè®®çš„æ— ç¼é›†æˆã€‚
 
-## ÏîÄ¿ÌØĞÔ
+## é¡¹ç›®ç‰¹æ€§
 
--  **WebSocket´«Êä**: »ùÓÚWebSocketĞ­ÒéÊµÏÖÓëĞ¡ÖÇAI MCP½ÓÈëµãµÄÁ¬½Ó
--  **×Ô¶¯ÖØÁ¬**: ÄÚÖÃ¶ÏÏßÖØÁ¬»úÖÆ£¬È·±£Á¬½ÓÎÈ¶¨ĞÔ
--  **ÈÕÖ¾Ö§³Ö**: ÍêÕûµÄÈÕÖ¾¼ÇÂ¼£¬±ãÓÚµ÷ÊÔºÍ¼à¿Ø
--  **ÒÀÀµ×¢Èë**: ÍêÈ«Ö§³Ö.NETÒÀÀµ×¢ÈëÈİÆ÷
-- **µ¥»á»°Ä£Ê½**: ×¨Îªµ¥Ò»»á»°³¡¾°ÓÅ»¯µÄ·şÎñ¼Ü¹¹
+-  **WebSocketä¼ è¾“**: åŸºäºWebSocketåè®®å®ç°ä¸å°æ™ºAI MCPæ¥å…¥ç‚¹çš„è¿æ¥
+-  **è‡ªåŠ¨é‡è¿**: å†…ç½®æ–­çº¿é‡è¿æœºåˆ¶ï¼Œç¡®ä¿è¿æ¥ç¨³å®šæ€§
+-  **æ—¥å¿—æ”¯æŒ**: å®Œæ•´çš„æ—¥å¿—è®°å½•ï¼Œä¾¿äºè°ƒè¯•å’Œç›‘æ§
+-  **ä¾èµ–æ³¨å…¥**: å®Œå…¨æ”¯æŒ.NETä¾èµ–æ³¨å…¥å®¹å™¨
+- **å•ä¼šè¯æ¨¡å¼**: ä¸“ä¸ºå•ä¸€ä¼šè¯åœºæ™¯ä¼˜åŒ–çš„æœåŠ¡æ¶æ„
 
-## ¿ìËÙ¿ªÊ¼
+## å¿«é€Ÿå¼€å§‹
 
-### °²×°
+### å®‰è£…
 
 ```bash
 dotnet add package XiaoZhi.Mcp.Connector
 ```
 
-### »ù±¾ÓÃ·¨
+### åŸºæœ¬ç”¨æ³•
 
 ```csharp
 using Microsoft.Extensions.DependencyInjection;
@@ -27,54 +27,54 @@ using XiaoZhi.Mcp.Connector;
 
 var builder = Host.CreateApplicationBuilder(args);
 
-// ÅäÖÃĞ¡ÖÇMCPÁ¬½ÓÆ÷
-var xiaoZhiMcpAccessPoint = "wss://api.xiaozhi.me/mcp/?token=exxxxxxxxxx"; // Ìæ»»ÎªÊµ¼ÊµÄĞ¡ÖÇAI MCP½ÓÈëµãµØÖ·
+// é…ç½®å°æ™ºMCPè¿æ¥å™¨
+var xiaoZhiMcpAccessPoint = "wss://api.xiaozhi.me/mcp/?token=exxxxxxxxxx"; // æ›¿æ¢ä¸ºå®é™…çš„å°æ™ºAI MCPæ¥å…¥ç‚¹åœ°å€
 
 builder.Services.AddMcpServer()
     .WithWebSocketServerTransport(xiaoZhiMcpAccessPoint)
-    .WithTools<TodoTool>(); // Ìí¼Ó×Ô¶¨Òå¹¤¾ß
+    .WithTools<TodoTool>(); // æ·»åŠ è‡ªå®šä¹‰å·¥å…·
 
 var host = builder.Build();
 await host.RunAsync();
 ```
 
-### ÅäÖÃÑ¡Ïî
+### é…ç½®é€‰é¡¹
 
 ```csharp
 builder.Services.Configure<XiaoZhiWebSocketOptions>(options =>
 {
-    options.WebSocketUrl = "wss://api.xiaozhi.me/mcp/?token=exxxxxxxxxx"; // Ìæ»»ÎªÊµ¼ÊµÄĞ¡ÖÇAI MCP½ÓÈëµãµØÖ·
+    options.WebSocketUrl = "wss://api.xiaozhi.me/mcp/?token=exxxxxxxxxx"; // æ›¿æ¢ä¸ºå®é™…çš„å°æ™ºAI MCPæ¥å…¥ç‚¹åœ°å€
 });
 
 builder.Services.AddMcpServer()
     .WithWebSocketServerTransport()
-    .WithTools<TodoTool>(); // Ìí¼Ó×Ô¶¨Òå¹¤¾ß
+    .WithTools<TodoTool>(); // æ·»åŠ è‡ªå®šä¹‰å·¥å…·
 ```
 
-## ÏîÄ¿½á¹¹
+## é¡¹ç›®ç»“æ„
 
 ```
 src/XiaoZhi.Mcp.Connector/
-©À©¤©¤ WebSocketMcpServerBuilderExtensions.cs  # À©Õ¹·½·¨ºÍ·şÎñ×¢²á
-©À©¤©¤ XiaoZhiWebSocketOptions.cs           # ÅäÖÃÑ¡Ïî
-©À©¤©¤ WebSocketServerTransport.cs            # WebSocket´«ÊäÊµÏÖ
-©À©¤©¤ SingleSessionMcpServerHostedService.cs # µ¥»á»°ÍĞ¹Ü·şÎñ
-©¸©¤©¤ Throw.cs                              # ²ÎÊıÑéÖ¤¹¤¾ß
+â”œâ”€â”€ WebSocketMcpServerBuilderExtensions.cs  # æ‰©å±•æ–¹æ³•å’ŒæœåŠ¡æ³¨å†Œ
+â”œâ”€â”€ XiaoZhiWebSocketOptions.cs           # é…ç½®é€‰é¡¹
+â”œâ”€â”€ WebSocketServerTransport.cs            # WebSocketä¼ è¾“å®ç°
+â”œâ”€â”€ SingleSessionMcpServerHostedService.cs # å•ä¼šè¯æ‰˜ç®¡æœåŠ¡
+â””â”€â”€ Throw.cs                              # å‚æ•°éªŒè¯å·¥å…·
 ```
 
-## ºËĞÄ×é¼ş
+## æ ¸å¿ƒç»„ä»¶
 
 ### WebSocketServerTransport
 
-×Ô¶¨ÒåµÄ`ITransport`ÊµÏÖ£¬¸ºÔğ£º
-- WebSocketÁ¬½Ó¹ÜÀí
-- ÏûÏ¢ÊÕ·¢´¦Àí
-- Á¬½Ó×´Ì¬¼à¿Ø
-- Òì³£´¦Àí
+è‡ªå®šä¹‰çš„`ITransport`å®ç°ï¼Œè´Ÿè´£ï¼š
+- WebSocketè¿æ¥ç®¡ç†
+- æ¶ˆæ¯æ”¶å‘å¤„ç†
+- è¿æ¥çŠ¶æ€ç›‘æ§
+- å¼‚å¸¸å¤„ç†
 
 ### WebSocketMcpServerBuilderExtensions
 
-Ìá¹©Á÷³©µÄAPIÀ´ÅäÖÃMCP·şÎñÆ÷£º
+æä¾›æµç•…çš„APIæ¥é…ç½®MCPæœåŠ¡å™¨ï¼š
 
 ```csharp
 public static IMcpServerBuilder WithWebSocketServerTransport(this IMcpServerBuilder builder, string webSocketUrl)
@@ -82,47 +82,47 @@ public static IMcpServerBuilder WithWebSocketServerTransport(this IMcpServerBuil
 
 ### SingleSessionMcpServerHostedService
 
-ºóÌ¨·şÎñ£¬¸ºÔğ£º
-- MCP·şÎñÆ÷ÉúÃüÖÜÆÚ¹ÜÀí
-- µ¥Ò»»á»°´¦Àí
-- ·şÎñÆô¶¯ºÍÍ£Ö¹
+åå°æœåŠ¡ï¼Œè´Ÿè´£ï¼š
+- MCPæœåŠ¡å™¨ç”Ÿå‘½å‘¨æœŸç®¡ç†
+- å•ä¸€ä¼šè¯å¤„ç†
+- æœåŠ¡å¯åŠ¨å’Œåœæ­¢
 
-## ÒÀÀµÏî
+## ä¾èµ–é¡¹
 
 - ModelContextProtocol >= 0.3.0-preview.3
 - Websocket.Client >= 5.2.0
 - Microsoft.Extensions.Hosting
 - Microsoft.Extensions.Logging
 
-## Ê¾ÀıÏîÄ¿
+## ç¤ºä¾‹é¡¹ç›®
 
-²é¿´ `samples/Xiaozhi.Mcp.Connector.Demo/` Ä¿Â¼ÖĞµÄÍêÕûÊ¾Àı
+æŸ¥çœ‹ `samples/Xiaozhi.Mcp.Connector.Demo/` ç›®å½•ä¸­çš„å®Œæ•´ç¤ºä¾‹
 
-## ÅäÖÃËµÃ÷
+## é…ç½®è¯´æ˜
 
-### WebSocketÅäÖÃ
+### WebSocketé…ç½®
 
-- **WebSocketUrl**: Ğ¡ÖÇAI MCP½ÓÈëµãµÄWebSocketµØÖ·
-- **ReconnectTimeout**: ÖØÁ¬³¬Ê±Ê±¼ä£¨Ä¬ÈÏ30Ãë£©
-- **IsReconnectionEnabled**: ÊÇ·ñÆôÓÃ×Ô¶¯ÖØÁ¬£¨Ä¬ÈÏÆôÓÃ£©
+- **WebSocketUrl**: å°æ™ºAI MCPæ¥å…¥ç‚¹çš„WebSocketåœ°å€
+- **ReconnectTimeout**: é‡è¿è¶…æ—¶æ—¶é—´ï¼ˆé»˜è®¤30ç§’ï¼‰
+- **IsReconnectionEnabled**: æ˜¯å¦å¯ç”¨è‡ªåŠ¨é‡è¿ï¼ˆé»˜è®¤å¯ç”¨ï¼‰
 
-### ÈÕÖ¾ÅäÖÃ
+### æ—¥å¿—é…ç½®
 
-ÏîÄ¿Ê¹ÓÃMicrosoft.Extensions.Logging½øĞĞÈÕÖ¾¼ÇÂ¼£¬Ö§³Ö£º
-- Á¬½Ó×´Ì¬±ä»¯ÈÕÖ¾
-- ÖØÁ¬ÊÂ¼şÈÕÖ¾
-- ¶Ï¿ªÁ¬½ÓÈÕÖ¾
-- ´íÎóºÍÒì³£ÈÕÖ¾
+é¡¹ç›®ä½¿ç”¨Microsoft.Extensions.Loggingè¿›è¡Œæ—¥å¿—è®°å½•ï¼Œæ”¯æŒï¼š
+- è¿æ¥çŠ¶æ€å˜åŒ–æ—¥å¿—
+- é‡è¿äº‹ä»¶æ—¥å¿—
+- æ–­å¼€è¿æ¥æ—¥å¿—
+- é”™è¯¯å’Œå¼‚å¸¸æ—¥å¿—
 
-## ¿ª·¢ºÍ¹±Ï×
+## å¼€å‘å’Œè´¡çŒ®
 
-### ¹¹½¨ÏîÄ¿
+### æ„å»ºé¡¹ç›®
 
 ```bash
 dotnet build
 ```
 
-### ÔËĞĞÊ¾Àı
+### è¿è¡Œç¤ºä¾‹
 
 ```bash
 cd samples/Xiaozhi.Mcp.Connector.Demo
